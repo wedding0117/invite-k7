@@ -676,7 +676,7 @@
       <p class="address-detail">1F 그랜드볼룸</p>
       <p class="address-detail">서울 영등포구 국회대로38길 2</p>
       <div class="map-frame">
-        <iframe src="https://maps.google.com/maps?q=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%98%81%EB%93%B1%ED%8F%AC%20%EC%84%9C%EC%9A%B8%20%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC%20%EA%B5%AD%ED%9A%8C%EB%8C%80%EB%A1%9C38%EA%B8%B8%202&hl=ko&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="더컨벤션 영등포 지도"></iframe>
+        <div id="kmap" style="width:100%;height:100%;"></div>
       </div>
       <div class="transit">
         <h3>지하철 이용 시</h3>
@@ -816,6 +816,26 @@
       }
       tick();
       setInterval(tick, 1000);
+    })();
+  </script>
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7b31ad99629c6eb20a78a2b77a0bea3c&libraries=services&autoload=false"></script>
+  <script>
+    (function () {
+      if (!window.kakao || !kakao.maps) return;
+      kakao.maps.load(function () {
+        var el = document.getElementById("kmap");
+        var map = new kakao.maps.Map(el, { center: new kakao.maps.LatLng(37.525, 126.896), level: 3 });
+        map.setZoomable(false);
+        var geocoder = new kakao.maps.services.Geocoder();
+        geocoder.addressSearch("서울 영등포구 국회대로38길 2", function (r, status) {
+          if (status !== kakao.maps.services.Status.OK) return;
+          var pos = new kakao.maps.LatLng(r[0].y, r[0].x);
+          map.setCenter(pos);
+          new kakao.maps.Marker({ map: map, position: pos });
+          new kakao.maps.CustomOverlay({ map: map, position: pos, yAnchor: 2.6,
+            content: '<div style="background:#fff;border:1px solid #c9b8a8;border-radius:6px;padding:4px 10px;font-size:12px;color:#3a342c;">더컨벤션 영등포</div>' });
+        });
+      });
     })();
   </script>
 </body>
