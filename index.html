@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>ㅇㅇㅇ · ㅇㅇㅇ 결혼식에 초대합니다</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f0ea;
+      --paper: #faf8f4;
+      --ink: #3a342c;
+      --muted: #8a8176;
+      --line: #ddd6cb;
+      --accent: #9a7b6a;
+      --accent-soft: #eee6dc;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #e8e2d8; }
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--bg);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .eyebrow {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .serif { font-family: "Gowun Batang", serif; }
+
+    /* Cover */
+    .cover {
+      padding: 26px 0 28px;
+      text-align: center;
+    }
+    .cover .eyebrow { margin-bottom: 10px; }
+    .cover-names {
+      font-family: "Gowun Batang", serif;
+      font-size: 24px;
+      letter-spacing: 0.2em;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .cover-names .and {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin: 2px 0;
+    }
+    .cover-photo {
+      margin: 0 22px 16px;
+    }
+    .cover-date {
+      font-family: "Gowun Batang", serif;
+      font-size: 14.5px;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .cover-place {
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .cover-place span { display: block; }
+    .scroll-hint {
+      margin-top: 16px;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+    }
+    .scroll-hint i {
+      display: block;
+      width: 1px;
+      height: 28px;
+      background: var(--line);
+      margin: 0 auto 8px;
+    }
+
+    /* Sections */
+    section.block {
+      padding: 72px 28px;
+      text-align: center;
+    }
+    section.block + section.block {
+      border-top: 1px solid var(--line);
+    }
+    .block h2 {
+      font-family: "Gowun Batang", serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      margin: 10px 0 28px;
+    }
+
+    .greeting p {
+      font-family: "Gowun Batang", serif;
+      font-size: 15px;
+      line-height: 2.15;
+      letter-spacing: 0.04em;
+    }
+    .greeting p + p { margin-top: 22px; }
+
+    /* Family */
+    .family {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+    }
+    .fam-row {
+      width: 100%;
+      max-width: 320px;
+    }
+    .fam-parents {
+      font-family: "Gowun Batang", serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .fam-parents .dot {
+      display: inline-block;
+      margin: 0 8px;
+      color: var(--accent);
+    }
+    .fam-child {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 12px;
+      font-family: "Gowun Batang", serif;
+    }
+    .fam-child .rel {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .fam-child .who {
+      font-size: 18px;
+      letter-spacing: 0.22em;
+    }
+
+    /* Ceremony */
+    .ceremony {
+      background: var(--paper);
+    }
+    .date-card {
+      padding: 8px 0 4px;
+    }
+    .date-num {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: 34px;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+    .date-ko {
+      font-family: "Gowun Batang", serif;
+      font-size: 14.5px;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+    .date-time {
+      margin-top: 6px;
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .rule {
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      margin: 26px auto;
+      opacity: 0.7;
+    }
+    .venue-name {
+      font-family: "Gowun Batang", serif;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+    .venue-hall {
+      margin-top: 4px;
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* Gallery */
+    .gallery { padding-left: 0; padding-right: 0; }
+    .gallery h2, .gallery .eyebrow { padding: 0 28px; }
+    .gallery-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .gallery-list button {
+      border: 0;
+      background: none;
+      padding: 0;
+      cursor: zoom-in;
+    }
+
+    .gallery-more { display: none; flex-direction: column; gap: 8px; margin-top: 8px; }
+    .gallery.open .gallery-more { display: flex; }
+    .more-btn {
+      display: block; margin: 18px auto 0; padding: 10px 26px;
+      border: 1px solid rgba(120,95,75,.35); background: transparent;
+      color: inherit; font: inherit; font-size: 14px; letter-spacing: .05em; border-radius: 999px; cursor: pointer;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 16, 12, 0.92);
+      z-index: 40;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.on { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      color: #fff;
+      background: none;
+      border: 0;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* Map */
+    .address {
+      font-family: "Gowun Batang", serif;
+      font-size: 15.5px;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .address-detail {
+      font-size: 13.5px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .map-note {
+      margin-top: 22px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* Accounts */
+    .lead {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin: -8px 0 28px;
+    }
+    .acc-group { margin-bottom: 12px; }
+    .acc-toggle {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-family: "Gowun Batang", serif;
+      font-size: 15px;
+      letter-spacing: 0.14em;
+      padding: 14px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .acc-toggle span.plus {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--accent);
+    }
+    .acc-body {
+      display: none;
+      border: 1px solid var(--line);
+      border-top: 0;
+      background: var(--card);
+      text-align: left;
+      padding: 6px 4px 10px;
+    }
+    .acc-group.open .acc-body { display: block; }
+    .acc-item {
+      padding: 14px 16px;
+    }
+    .acc-item + .acc-item {
+      border-top: 1px solid var(--line);
+    }
+    .acc-item h3 {
+      font-family: "Gowun Batang", serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .acc-item .num {
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .acc-item .holder {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      cursor: pointer;
+    }
+    .copy-btn.done { color: var(--accent); }
+
+    /* RSVP */
+    .rsvp-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 24px 18px 22px;
+      text-align: left;
+    }
+    .field { margin-bottom: 18px; }
+    .field label, .side-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .chips { display: flex; gap: 8px; }
+    .chips button, .rsvp-card select, .rsvp-card input[type="text"] {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 13.5px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .chips button {
+      flex: 1;
+      padding: 10px 0;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+    }
+    .chips button.on {
+      background: var(--ink);
+      color: #faf8f4;
+      border-color: var(--ink);
+    }
+    .rsvp-card input[type="text"], .rsvp-card select {
+      width: 100%;
+      padding: 10px 12px;
+      outline: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    .rsvp-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 13px 0;
+      background: var(--ink);
+      color: #faf8f4;
+      border: 0;
+      font-family: "Gowun Batang", serif;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+    }
+    .rsvp-msg {
+      display: none;
+      margin-top: 14px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 48px 28px 64px;
+      text-align: center;
+      color: var(--muted);
+      font-family: "Gowun Batang", serif;
+      letter-spacing: 0.2em;
+      font-size: 13px;
+    }
+    footer .rule { margin: 0 auto 20px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="cover" id="cover">
+      <p class="eyebrow">Wedding Invitation</p>
+      <div class="cover-names">
+        ㅇㅇㅇ
+        <span class="and">and</span>
+        ㅇㅇㅇ
+      </div>
+      <div class="cover-photo">
+        <img src="img/DSC03272.jpg" alt="신랑신부 사진">
+      </div>
+      <p class="cover-date">ㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일 ㅇ요일</p>
+      <p class="cover-date" style="margin-top:-2px">오전/오후 ㅇ시 ㅇ분</p>
+      <div class="cover-place">
+        <span>ㅇㅇㅇ</span>
+        <span>ㅇㅇㅇ</span>
+      </div>
+      <div class="scroll-hint"><i></i>SCROLL</div>
+    </section>
+
+    <section class="block greeting" id="greeting">
+      <p class="eyebrow">Invitation</p>
+      <h2>초대합니다</h2>
+      <p>
+        서로의 하루가 되어 준 두 사람이<br>
+        이제 한 길을 함께 걸어가려 합니다.
+      </p>
+      <p>
+        따뜻한 마음으로 자리를<br>
+        함께해 주시면<br>
+        그 기쁨을 오래 간직하겠습니다.
+      </p>
+    </section>
+
+    <section class="block" id="family">
+      <p class="eyebrow">Family</p>
+      <h2>모시는 이</h2>
+      <div class="family">
+        <div class="fam-row">
+          <div class="fam-parents">ㅇㅇㅇ <span class="dot">·</span> ㅇㅇㅇ</div>
+          <div class="fam-child">
+            <span class="rel">의 아들</span>
+            <span class="who">ㅇㅇㅇ</span>
+          </div>
+        </div>
+        <div class="fam-row">
+          <div class="fam-parents">ㅇㅇㅇ <span class="dot">·</span> ㅇㅇㅇ</div>
+          <div class="fam-child">
+            <span class="rel">의 딸</span>
+            <span class="who">ㅇㅇㅇ</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block ceremony" id="ceremony">
+      <p class="eyebrow">The Date</p>
+      <h2>예식 안내</h2>
+      <div class="date-card">
+        <div class="date-num">ㅇㅇ. ㅇㅇ. ㅇㅇㅇㅇ</div>
+        <p class="date-ko">ㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일 ㅇ요일</p>
+        <p class="date-time">오전/오후 ㅇ시 ㅇ분</p>
+        <div class="rule"></div>
+        <p class="venue-name">ㅇㅇㅇ</p>
+        <p class="venue-hall">ㅇㅇㅇ</p>
+      </div>
+    </section>
+
+    <section class="block gallery" id="gallery">
+      <p class="eyebrow">Gallery</p>
+      <h2>갤러리</h2>
+      <div class="gallery-list">
+        <button type="button" data-full="img/DSC00504.jpg"><img src="img/DSC00504.jpg" alt="웨딩 사진 1" loading="lazy"></button>
+        <button type="button" data-full="img/DSC00777.jpg"><img src="img/DSC00777.jpg" alt="웨딩 사진 2" loading="lazy"></button>
+      </div>
+      <div class="gallery-list gallery-more">
+        <button type="button" data-full="img/DSC00758.jpg"><img src="img/DSC00758.jpg" alt="웨딩 사진 3" loading="lazy"></button>
+        <button type="button" data-full="img/DSC03272.jpg"><img src="img/DSC03272.jpg" alt="웨딩 사진 4" loading="lazy"></button>
+        <button type="button" data-full="img/DSC04029.jpg"><img src="img/DSC04029.jpg" alt="웨딩 사진 5" loading="lazy"></button>
+        <button type="button" data-full="img/DSC04480.jpg"><img src="img/DSC04480.jpg" alt="웨딩 사진 6" loading="lazy"></button>
+      </div>
+      <button type="button" class="more-btn" id="more-btn">사진 더보기 +</button>
+    </section>
+
+    <section class="block" id="way">
+      <p class="eyebrow">Location</p>
+      <h2>오시는 길</h2>
+      <p class="address">ㅇㅇㅇ</p>
+      <p class="address-detail">ㅇㅇㅇ</p>
+      <p class="address-detail" style="margin-top:10px">ㅇㅇㅇ</p>
+      <p class="map-note">지도와 교통 안내는 장소가 정해진 뒤 넣겠습니다.</p>
+    </section>
+
+    <section class="block" id="account">
+      <p class="eyebrow">Account</p>
+      <h2>마음 전하실 곳</h2>
+      <p class="lead">축하의 마음을 전하고 싶으신 분을 위해<br>계좌를 남겨 두었습니다.</p>
+
+      <div class="acc-group" id="acc-groom">
+        <button type="button" class="acc-toggle" aria-expanded="false">신랑 측 <span class="plus">+</span></button>
+        <div class="acc-body">
+          <div class="acc-item">
+            <h3>신랑</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+          <div class="acc-item">
+            <h3>신랑 아버지</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+          <div class="acc-item">
+            <h3>신랑 어머니</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-group" id="acc-bride">
+        <button type="button" class="acc-toggle" aria-expanded="false">신부 측 <span class="plus">+</span></button>
+        <div class="acc-body">
+          <div class="acc-item">
+            <h3>신부</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+          <div class="acc-item">
+            <h3>신부 아버지</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+          <div class="acc-item">
+            <h3>신부 어머니</h3>
+            <div class="num">ㅇㅇㅇ</div>
+            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
+            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="rule"></div>
+      ㅇㅇㅇ  ·  ㅇㅇㅇ
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button type="button" class="close" aria-label="닫기">×</button>
+    <img alt="확대 사진">
+  </div>
+
+  <script>
+    document.querySelectorAll(".acc-toggle").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var group = btn.parentElement;
+        var open = group.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.querySelector(".plus").textContent = open ? "−" : "+";
+      });
+    });
+
+    document.querySelectorAll(".copy-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var text = btn.getAttribute("data-copy") || "";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(function () {});
+        }
+        btn.classList.add("done");
+        btn.textContent = "복사됨";
+        setTimeout(function () {
+          btn.classList.remove("done");
+          btn.textContent = "복사";
+        }, 1400);
+      });
+    });
+
+    document.getElementById("more-btn").addEventListener("click", function () {
+      var g = document.getElementById("gallery");
+      var open = g.classList.toggle("open");
+      this.textContent = open ? "접기 −" : "사진 더보기 +";
+    });
+
+    var box = document.getElementById("lightbox");
+    var boxImg = box.querySelector("img");
+    document.querySelectorAll(".gallery-list button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        boxImg.src = btn.getAttribute("data-full");
+        box.classList.add("on");
+      });
+    });
+    function closeBox() {
+      box.classList.remove("on");
+      boxImg.src = "";
+    }
+    box.querySelector(".close").addEventListener("click", closeBox);
+    box.addEventListener("click", function (e) {
+      if (e.target === box) closeBox();
+    });
+  </script>
+</body>
+</html>
