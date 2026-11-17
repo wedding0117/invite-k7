@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
-  <title>ㅇㅇㅇ · ㅇㅇㅇ 결혼식에 초대합니다</title>
+  <title>권오현 · 양나래</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
@@ -185,6 +185,8 @@
       font-size: 34px;
       letter-spacing: 0.08em;
       line-height: 1.2;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: "lnum", "tnum";
     }
     .date-ko {
       font-family: "Gowun Batang", serif;
@@ -281,6 +283,15 @@
       color: var(--muted);
       letter-spacing: 0.04em;
     }
+    .map-frame {
+      margin: 22px auto 6px;
+      width: 100%;
+      height: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
     .map-note {
       margin-top: 22px;
       font-size: 12.5px;
@@ -304,9 +315,9 @@
       font-size: 15px;
       letter-spacing: 0.14em;
       padding: 14px 16px;
-      cursor: pointer;
+      cursor: default;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
     }
     .acc-toggle span.plus {
@@ -316,7 +327,7 @@
       color: var(--accent);
     }
     .acc-body {
-      display: none;
+      display: block;
       border: 1px solid var(--line);
       border-top: 0;
       background: var(--card);
@@ -360,6 +371,115 @@
       cursor: pointer;
     }
     .copy-btn.done { color: var(--accent); }
+
+
+    .transit { margin-top: 28px; text-align: center; }
+    .transit h3 {
+      font-family: "Gowun Batang", serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin: 22px 0 8px;
+    }
+    .transit p {
+      font-size: 13.5px;
+      letter-spacing: 0.04em;
+      line-height: 1.95;
+    }
+    .map-btns {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .map-btns a {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid rgba(120, 95, 75, 0.35);
+      background: transparent;
+      color: inherit;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      border-radius: 999px;
+    }
+
+    .cal {
+      margin: 32px auto 0;
+      max-width: 280px;
+    }
+    .cal-caption {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: "lnum", "tnum";
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      font-size: 12.5px;
+    }
+    .cal-grid span {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .cal-grid .dow {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      height: 28px;
+    }
+    .cal-grid .on {
+      color: #faf8f4;
+      z-index: 1;
+    }
+    .cal-grid .on::before {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      z-index: -1;
+    }
+    .dday {
+      margin-top: 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 14px;
+    }
+    .countdown div { display: flex; flex-direction: column; align-items: center; min-width: 40px; }
+    .countdown b {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: 24px;
+      color: var(--ink, #4a3f38);
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    .countdown span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .cd-msg { margin-top: 12px; font-size: 13px; color: var(--accent); }
 
     /* RSVP */
     .rsvp-card {
@@ -431,6 +551,7 @@
       font-size: 13px;
     }
     footer .rule { margin: 0 auto 20px; }
+    .footer-thanks { margin-top: 14px; letter-spacing: 0.04em; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -438,18 +559,18 @@
     <section class="cover" id="cover">
       <p class="eyebrow">Wedding Invitation</p>
       <div class="cover-names">
-        ㅇㅇㅇ
+        권오현
         <span class="and">and</span>
-        ㅇㅇㅇ
+        양나래
       </div>
       <div class="cover-photo">
         <img src="img/DSC03272.jpg" alt="신랑신부 사진">
       </div>
-      <p class="cover-date">ㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일 ㅇ요일</p>
-      <p class="cover-date" style="margin-top:-2px">오전/오후 ㅇ시 ㅇ분</p>
+      <p class="cover-date">2027년 1월 17일 일요일</p>
+      <p class="cover-date" style="margin-top:-2px">오후 12시 40분</p>
       <div class="cover-place">
-        <span>ㅇㅇㅇ</span>
-        <span>ㅇㅇㅇ</span>
+        <span>영등포 더컨벤션</span>
+        <span>1F 그랜드볼룸</span>
       </div>
       <div class="scroll-hint"><i></i>SCROLL</div>
     </section>
@@ -458,13 +579,17 @@
       <p class="eyebrow">Invitation</p>
       <h2>초대합니다</h2>
       <p>
-        서로의 하루가 되어 준 두 사람이<br>
-        이제 한 길을 함께 걸어가려 합니다.
+        함께 웃고 울었던 수많은 시간들을 지나,<br>
+        저희 두 사람 이제 영원한 사랑을 맹세하려 합니다.
       </p>
       <p>
-        따뜻한 마음으로 자리를<br>
-        함께해 주시면<br>
-        그 기쁨을 오래 간직하겠습니다.
+        지나온 모든 순간이 아름다운 추억으로 자리 잡고,<br>
+        다가올 모든 날들이 설렘 가득한 새 시작이 될 것을 믿습니다.
+      </p>
+      <p>
+        저희가 부부라는 이름으로 다시 태어나는 날,<br>
+        부디 오셔서 축복의 마음을 나누어 주시면<br>
+        더없는 영광으로 간직하겠습니다.
       </p>
     </section>
 
@@ -473,17 +598,17 @@
       <h2>모시는 이</h2>
       <div class="family">
         <div class="fam-row">
-          <div class="fam-parents">ㅇㅇㅇ <span class="dot">·</span> ㅇㅇㅇ</div>
+          <div class="fam-parents">권영기 <span class="dot">·</span> 이정임</div>
           <div class="fam-child">
-            <span class="rel">의 아들</span>
-            <span class="who">ㅇㅇㅇ</span>
+            <span class="rel">의 외아들</span>
+            <span class="who">권오현</span>
           </div>
         </div>
         <div class="fam-row">
-          <div class="fam-parents">ㅇㅇㅇ <span class="dot">·</span> ㅇㅇㅇ</div>
+          <div class="fam-parents">양창국 <span class="dot">·</span> 김용순</div>
           <div class="fam-child">
-            <span class="rel">의 딸</span>
-            <span class="who">ㅇㅇㅇ</span>
+            <span class="rel">의 장녀</span>
+            <span class="who">양나래</span>
           </div>
         </div>
       </div>
@@ -493,12 +618,32 @@
       <p class="eyebrow">The Date</p>
       <h2>예식 안내</h2>
       <div class="date-card">
-        <div class="date-num">ㅇㅇ. ㅇㅇ. ㅇㅇㅇㅇ</div>
-        <p class="date-ko">ㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일 ㅇ요일</p>
-        <p class="date-time">오전/오후 ㅇ시 ㅇ분</p>
+        <div class="date-num">2027. 01. 17</div>
+        <p class="date-ko">2027년 1월 17일 일요일</p>
+        <p class="date-time">오후 12시 40분</p>
         <div class="rule"></div>
-        <p class="venue-name">ㅇㅇㅇ</p>
-        <p class="venue-hall">ㅇㅇㅇ</p>
+        <p class="venue-name">영등포 더컨벤션</p>
+        <p class="venue-hall">1F 그랜드볼룸</p>
+        <div class="cal" aria-label="2027년 1월">
+          <div class="cal-caption">2027. 01</div>
+          <div class="cal-grid">
+            <span class="dow">일</span><span class="dow">월</span><span class="dow">화</span><span class="dow">수</span><span class="dow">목</span><span class="dow">금</span><span class="dow">토</span>
+            <span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span>
+            <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+            <span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+            <span class="on">17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+            <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+            <span>31</span>
+          </div>
+        </div>
+        <p class="dday" id="dday"></p>
+        <div class="countdown" id="countdown">
+          <div><b id="cd-d">0</b><span>DAYS</span></div>
+          <div><b id="cd-h">00</b><span>HOURS</span></div>
+          <div><b id="cd-m">00</b><span>MIN</span></div>
+          <div><b id="cd-s">00</b><span>SEC</span></div>
+        </div>
+        <p class="cd-msg" id="cd-msg"></p>
       </div>
     </section>
 
@@ -521,10 +666,24 @@
     <section class="block" id="way">
       <p class="eyebrow">Location</p>
       <h2>오시는 길</h2>
-      <p class="address">ㅇㅇㅇ</p>
-      <p class="address-detail">ㅇㅇㅇ</p>
-      <p class="address-detail" style="margin-top:10px">ㅇㅇㅇ</p>
-      <p class="map-note">지도와 교통 안내는 장소가 정해진 뒤 넣겠습니다.</p>
+      <p class="address">영등포 더컨벤션</p>
+      <p class="address-detail">1F 그랜드볼룸</p>
+      <p class="address-detail">서울 영등포구 국회대로38길 2</p>
+      <div class="map-frame">
+        <iframe src="https://maps.google.com/maps?q=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%98%81%EB%93%B1%ED%8F%AC%20%EC%84%9C%EC%9A%B8%20%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC%20%EA%B5%AD%ED%9A%8C%EB%8C%80%EB%A1%9C38%EA%B8%B8%202&hl=ko&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="더컨벤션 영등포 지도"></iframe>
+      </div>
+      <div class="transit">
+        <h3>지하철 이용 시</h3>
+        <p>2, 5호선 영등포구청역 4번출구 도보 3분<br>(영등포경찰서 방면)</p>
+        <h3>버스 이용 시</h3>
+        <p>70-3, 5620, 6631, 6637, 7612, 영등포 02, 영등포 12</p>
+        <h3>자가용 이용 시</h3>
+        <p>웨딩홀 지하 주차장 1, 2F / 웨딩홀 맞은편 공영주차장 / 외부주차장 삼성생명 이용 가능</p>
+      </div>
+      <div class="map-btns">
+        <a href="https://map.naver.com/p/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%98%81%EB%93%B1%ED%8F%AC" target="_blank" rel="noopener noreferrer">네이버 지도</a>
+        <a href="https://map.kakao.com/?q=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EC%98%81%EB%93%B1%ED%8F%AC" target="_blank" rel="noopener noreferrer">카카오맵</a>
+      </div>
     </section>
 
     <section class="block" id="account">
@@ -533,31 +692,31 @@
       <p class="lead">축하의 마음을 전하고 싶으신 분을 위해<br>계좌를 남겨 두었습니다.</p>
 
       <div class="acc-group" id="acc-groom">
-        <button type="button" class="acc-toggle" aria-expanded="false">신랑 측 <span class="plus">+</span></button>
+        <div class="acc-toggle">신랑 측</div>
         <div class="acc-body">
           <div class="acc-item">
             <h3>신랑</h3>
-            <div class="num">ㅇㅇㅇ</div>
-            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
-            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+            <div class="num">110-477-881401</div>
+            <div class="holder">신한은행 권오현</div>
+            <button type="button" class="copy-btn" data-copy="110477881401">복사</button>
           </div>
           <div class="acc-item">
             <h3>신랑 아버지</h3>
-            <div class="num">ㅇㅇㅇ</div>
-            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
-            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+            <div class="num">100-427-55302001</div>
+            <div class="holder">우리은행 권영기</div>
+            <button type="button" class="copy-btn" data-copy="10042755302001">복사</button>
           </div>
           <div class="acc-item">
             <h3>신랑 어머니</h3>
-            <div class="num">ㅇㅇㅇ</div>
-            <div class="holder">ㅇㅇ은행 ㅇㅇㅇ</div>
-            <button type="button" class="copy-btn" data-copy="ㅇㅇㅇ">복사</button>
+            <div class="num">853-02-181861</div>
+            <div class="holder">농협은행 이정림</div>
+            <button type="button" class="copy-btn" data-copy="85302181861">복사</button>
           </div>
         </div>
       </div>
 
       <div class="acc-group" id="acc-bride">
-        <button type="button" class="acc-toggle" aria-expanded="false">신부 측 <span class="plus">+</span></button>
+        <div class="acc-toggle">신부 측</div>
         <div class="acc-body">
           <div class="acc-item">
             <h3>신부</h3>
@@ -583,7 +742,8 @@
 
     <footer>
       <div class="rule"></div>
-      ㅇㅇㅇ  ·  ㅇㅇㅇ
+      권오현  ·  양나래
+      <p class="footer-thanks">저희의 결혼을 축복해주셔서 감사합니다.</p>
     </footer>
   </div>
 
@@ -593,15 +753,6 @@
   </div>
 
   <script>
-    document.querySelectorAll(".acc-toggle").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var group = btn.parentElement;
-        var open = group.classList.toggle("open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.querySelector(".plus").textContent = open ? "−" : "+";
-      });
-    });
-
     document.querySelectorAll(".copy-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var text = btn.getAttribute("data-copy") || "";
@@ -639,6 +790,27 @@
     box.addEventListener("click", function (e) {
       if (e.target === box) closeBox();
     });
+
+    (function () {
+      var el = document.getElementById("dday");
+      if (!el) return;
+      var T = Date.UTC(2027, 0, 17, 3, 40, 0); // 2027-01-17 12:40 KST
+      function kstDay(ms) { return Math.floor((ms + 9 * 3600000) / 86400000); }
+      function pad(n) { return (n < 10 ? "0" : "") + n; }
+      function tick() {
+        var now = Date.now();
+        var d = kstDay(T) - kstDay(now);
+        el.textContent = d > 0 ? "D-" + d : d === 0 ? "D-Day" : "D+" + Math.abs(d);
+        var left = Math.max(0, Math.floor((T - now) / 1000));
+        document.getElementById("cd-d").textContent = Math.floor(left / 86400);
+        document.getElementById("cd-h").textContent = pad(Math.floor(left % 86400 / 3600));
+        document.getElementById("cd-m").textContent = pad(Math.floor(left % 3600 / 60));
+        document.getElementById("cd-s").textContent = pad(left % 60);
+        document.getElementById("cd-msg").textContent = left > 0 ? "결혼식까지 남은 시간" : "저희 결혼합니다";
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
 </body>
 </html>
